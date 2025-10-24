@@ -72,7 +72,7 @@ const UserSetup = () => {
             if (response.ok) {
                 const createdInstance = await response.json();
                 alert(`Instance "${createdInstance.name}" created successfully!`);
-                navigate(`/${createdInstance.id}/admin`);
+                navigate(`/${username}`);
             } else {
                 const errorData = await response.json();
                 alert(`Failed to create instance: ${errorData.message}`);

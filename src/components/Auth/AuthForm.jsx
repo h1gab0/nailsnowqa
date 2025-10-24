@@ -26,11 +26,11 @@ const AuthForm = () => {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
+        const user = await response.json();
         if (isSignUp) {
-          const newUser = await response.json();
-          navigate(`/${newUser.name}/setup`);
+          navigate(`/${user.name}/setup`);
         } else {
-          navigate('/');
+          navigate(`/${user.name}`);
         }
       } else {
         const errorData = await response.json();
